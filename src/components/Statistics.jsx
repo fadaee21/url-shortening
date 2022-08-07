@@ -8,7 +8,9 @@ const Statistics = () => {
     const theme = useTheme()
     const matches = useMediaQuery(theme.breakpoints.up("md"))
     return (
-        <StatisticsBackground sx={{ py: 5 }}>
+        <StatisticsBackground
+            component={'section'}
+            sx={{ py: 5 }}>
             <Container
                 maxWidth='lg'
                 sx={{

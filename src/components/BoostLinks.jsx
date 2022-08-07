@@ -4,7 +4,7 @@ import { BgBoostBox } from '../styles/bgBoost'
 
 const BoostLinks = () => {
     return (
-        <BgBoostBox textAlign={'center'} sx={{py:8}} >
+        <BgBoostBox component={'section'} textAlign={'center'} sx={{ py: 8 }} >
             <Typography variant='h5' letterSpacing={0} fontWeight={700} color='#fff' >
                 Boost your links today
             </Typography>

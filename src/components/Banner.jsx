@@ -7,7 +7,9 @@ import illustration from '../assets/all/illustration-working.svg'
 const Banner = () => {
 
     return (
-        <Box sx={{ overflowX: 'clip' }}>
+        <Box
+            component={'section'}
+            sx={{ overflowX: 'clip' }}>
             <Container maxWidth='lg'  >
                 <Grid container sx={{
                     position: 'relative',

@@ -7,10 +7,18 @@ import { Divider, Link, Stack, useMediaQuery, useTheme } from '@mui/material';
 import { ButtonCopy } from '../styles/inputShorten';
 import { Colors } from '../styles/theme/styles';
 
-export default function LinkShorted() {
+export default function LinkShorted({ item }) {
+    const [copyState, setCopyState] = React.useState(false)
+
     //* find media is mobile or desktop
     const theme = useTheme()
     const matches = useMediaQuery(theme.breakpoints.down("md"))
+
+    const handleCopy = () => {
+        navigator.clipboard.writeText(item.receive)
+        setCopyState(true)
+    }
+
     return (
         <Card
             elevation={0}
@@ -27,11 +35,17 @@ export default function LinkShorted() {
                     alignItems={matches ? 'flex-start' : 'center'}
                     height='100%'
                 >
-                    <Typography variant='body2' sx={{ p: 1.5 }}>www.google.com</Typography>
+                    <Typography variant='body2' sx={{ p: 1.5 }}>{item.send}</Typography>
                     <Divider variant='fullWidth' sx={{ width: { xs: '100%', md: 0 } }} />
                     <Typography variant='body2' sx={{ color: Colors.Cyan, p: 1.5 }}>
-                        <Link href="#" color="inherit" underline="none">
-                            www.g2f88q2ef29gg.com
+                        <Link
+                            //TODO in development mode it doesn't work properly
+                            href={item.receive}
+                            color="inherit"
+                            underline="none"
+                            target={"_blank"}
+                            rel="noreferrer" >
+                            {item.receive}
                         </Link>
                     </Typography>
                 </Stack>
@@ -41,7 +55,7 @@ export default function LinkShorted() {
                 justifyContent: { xs: 'center', md: 'flex-start' },
                 alignItems: 'center',
             }}>
-                <ButtonCopy variant='contained' fontSize="" >Copy</ButtonCopy>
+                <ButtonCopy variant='contained' fontSize="" onClick={handleCopy} copyState={copyState} >{copyState ? "Copied!" : "Copy"}</ButtonCopy>
             </CardActions>
         </Card>
 

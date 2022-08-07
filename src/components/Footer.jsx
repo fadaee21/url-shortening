@@ -8,7 +8,7 @@ import { Colors } from '../styles/theme/styles'
 
 const Footer = () => {
     return (
-        <Box sx={{ backgroundColor: Colors.VeryDarkViolet, color: '#fff', py: 8 }} >
+        <Box component={'footer'} sx={{ backgroundColor: Colors.VeryDarkViolet, color: '#fff', py: 8 }} >
             <Container>
                 <Grid container>
                     <Grid item md={3}   sm={12}  xs={12}>

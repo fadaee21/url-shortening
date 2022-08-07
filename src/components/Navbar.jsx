@@ -12,6 +12,7 @@ import Divider from '@mui/material/Divider'
 import Stack from '@mui/material/Stack'
 import { ShortlyIcon } from '../assets/svg';
 
+
 const pages = ['features', 'Pricing', 'resources'];
 
 const ResponsiveAppBar = () => {
@@ -31,7 +32,7 @@ const ResponsiveAppBar = () => {
   return (
     <AppBar position="static" color={"whitePalette"} elevation={0} >
       <Container maxWidth="lg">
-        <Toolbar disableGutters sx={{ flexDirection: { xs: 'row-reverse', md: 'row' }, justifyContent: 'space-between' }}>
+        <Toolbar disableGutters sx={{ flexDirection: { xs: 'row-reverse', md: 'row' }, justifyContent: 'space-between', pt: 1 }}>
           <ShortlyIcon sx={{ display: { xs: 'none', md: 'flex' }, width: '7rem', height: '7rem' }} />
           <Box sx={{ flexGrow: 0, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -70,7 +71,12 @@ const ResponsiveAppBar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu} >
-                  <Button sx={{ color: '#fff', fontSize: '1.2rem' }} >{page}</Button>
+                  <Button sx={{
+                    color: '#bbb',
+                    "&:hover": {
+                      color: '#fff'
+                    }
+                  }} >{page}</Button>
                 </MenuItem>
               ))}
               <MenuItem onClick={handleCloseNavMenu}
@@ -78,8 +84,13 @@ const ResponsiveAppBar = () => {
               >
                 <Stack spacing={2}  >
                   <Divider sx={{ width: '18rem', borderColor: '#ffffff30' }} />
-                  <Button sx={{ color: '#fff', fontSize: '1.2rem' }}  >login</Button>
-                  <Button variant='cyan' sx={{ fontSize: '1.2rem' }} >sign up</Button>
+                  <Button sx={{
+                    color: '#bbb',
+                    "&:hover": {
+                      color: '#fff'
+                    }
+                  }}  >login</Button>
+                  <Button variant='cyan'  >sign up</Button>
                 </Stack>
               </MenuItem>
             </Menu>
@@ -92,6 +103,7 @@ const ResponsiveAppBar = () => {
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ m: 1, display: 'block' }}
+
               >
                 {page}
               </Button>
@@ -100,7 +112,7 @@ const ResponsiveAppBar = () => {
 
           <Box sx={{ display: { xs: 'none', md: 'flex' }, flexGrow: 0 }}  >
             <Button sx={{ mx: '1rem' }} >login</Button>
-            <Button variant='cyan' >sign up</Button>
+            <Button variant='cyan'  >sign up</Button>
           </Box>
         </Toolbar>
       </Container>

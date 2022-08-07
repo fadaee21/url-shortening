@@ -1,16 +1,37 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Container } from '@mui/system'
 import bgShorten from '../assets/all/bg-shorten-desktop.svg'
 import bgShortenM from '../assets/all/bg-shorten-mobile.svg'
 import { Colors } from '../styles/theme/styles'
 import { InputButton, ShortenTextField } from '../styles/inputShorten'
 import LinkShorted from './LinkShorted'
+import { Typography } from '@mui/material'
+import useFetch from '../hook/useFetch'
 const InputShorten = () => {
+    const [textInput, setTextInput] = useState("")
+    //custom hook
+    const [fetchApi, errorHandling, storedValue, setErrorHandling] = useFetch(textInput, setTextInput)
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        //Receive an error message if the input field is empty
+        if (textInput) {
+            fetchApi()
+        } else {
+            setErrorHandling("Please add a link")
+        }
+    }
+
+    //clear error state after typing in the text field
+    useEffect(() => {
+        setErrorHandling("")
+    }, [textInput])
 
 
     return (
-        <Box sx={{
+        <Box 
+        component={'main'}
+        sx={{
             backgroundColor: Colors.Gray,
             position: 'relative',
             mt: 5
@@ -27,15 +48,15 @@ const InputShorten = () => {
             <Container maxWidth='lg'  >
                 <Box
                     component="form"
+                    onSubmit={handleSubmit}
                     autoComplete="off"
                     sx={{
                         position: 'relative',
                         zIndex: 3,
                         display: 'flex',
-                        alignItems: 'center',
+                        flexDirection: 'column',
+                        alignItems: 'flex-start',
                         justifyContent: 'center',
-                        flexDirection: { xs: 'column', md: 'row' },
-                        '& > :not(style)': { m: 1 },
                         borderRadius: '10px',
                         padding: 3,
                         backgroundImage: { xs: `url(${bgShortenM})`, md: `url(${bgShorten})` },
@@ -44,16 +65,40 @@ const InputShorten = () => {
                         backgroundPosition: { xs: '0 300px', md: '0 0' }
                     }}
                 >
-                    <ShortenTextField
-                        hiddenLabel
-                        id="demo-helper-text-aligned"
-                        placeholder='Shorten a link here...'
-                    />
-                    <InputButton variant="contained" >Shorten it!</InputButton>
-                </Box>
-                <LinkShorted />
-                <LinkShorted />
+                    <Box sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexDirection: { xs: 'column', md: 'row' },
+                        '& > :not(style)': { m: 1 },
+                        width: '100%'
 
+                    }}>
+                        <ShortenTextField
+                            type='text'
+                            hiddenLabel
+                            id="demo-helper-text-aligned"
+                            onChange={(e) => setTextInput(e.target.value)}
+                            value={textInput}
+                            placeholder='Shorten a link here...'
+                            errorHandling={errorHandling}
+                        />
+                        <InputButton variant="contained" type='submit' >Shorten it!</InputButton>
+                    </Box>
+                    {errorHandling &&
+                        <Typography
+                            component={'span'}
+                            variant='caption'
+                            color={'error'}
+                            sx={{ ml: { md: '0.5rem', sm: '2.2rem', xs: '1.2rem' } }}
+                        >
+                            {errorHandling}
+                        </Typography>}
+                </Box>
+                {/* See a list of their shortened links, even after refreshing the browser */}
+                {storedValue.map((item) => {
+                    return <LinkShorted key={item.receive} item={item} />
+                })}
             </Container>
 
         </Box>

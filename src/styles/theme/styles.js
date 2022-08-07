@@ -16,9 +16,10 @@ export const Colors = {
 };
 
 let theme = createTheme({
+
   typography: {
     fontFamily: ["Poppins", "Roboto", "sans-serif"].join(","),
-    fontSize: 18,
+    fontSize: 16,
   },
   palette: {
     primary: {
@@ -46,17 +47,22 @@ let theme = createTheme({
     },
   },
   components: {
+    MuiContainer: {
+      defaultProps: {
+        maxWidth: '100rem'
+      }
+    },
     MuiButtonBase: {
       defaultProps: {
         disableRipple: true, // No more ripple, on the whole application 💣!
       },
+
     },
     MuiButton: {
       styleOverrides: {
         root: {
           textTransform: "capitalize",
           color: Colors.GrayishViolet,
-          fontSize: 14,
           fontWeight: 700,
           "&:hover": {
             backgroundColor: 'transparent',
@@ -79,7 +85,6 @@ let theme = createTheme({
 
         }
       }],
-
     },
     MuiMenu: {
       styleOverrides: {
@@ -94,13 +99,22 @@ let theme = createTheme({
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          padding:'2rem 0'
+          padding: '2rem 0'
         },
       },
     },
+    MuiMenuItem: {
+      styleOverrides: {
+       root:{
+        "&:hover": {
+          backgroundColor: 'transparent'
+        }
+       }
+      }
+    }
   },
 });
 
-theme = responsiveFontSizes(theme);
+theme = responsiveFontSizes(theme,);
 export default theme;
 
