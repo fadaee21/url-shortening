@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Typography } from '@mui/material'
-import { BgBoostBox } from '../styles/bgBoost'
+import { BgBoostBox } from '../../styles/bgBoost'
 
 const BoostLinks = () => {
     return (

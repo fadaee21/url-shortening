@@ -1,6 +1,6 @@
 import { Avatar, styled } from "@mui/material";
 import { Box } from "@mui/system";
-import { Colors } from "../theme/styles";
+import { Colors } from "../theme";
 
 
 export const CardBox = styled(Box)(({ theme }) => ({

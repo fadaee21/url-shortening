@@ -2,9 +2,9 @@
 import { Grid, List, ListItem, ListItemText } from '@mui/material'
 import { Box, Container } from '@mui/system'
 import React from 'react'
-import { Instagram, Pintrest, ShortlyIcon, Twitter, Youtube } from '../assets/svg'
-import { ButtonFooterIcon, ListItemButtonStyled, ListItemCenter } from '../styles/footer'
-import { Colors } from '../styles/theme/styles'
+import { Instagram, Pintrest, ShortlyIcon, Twitter, Youtube } from '../../assets/svg'
+import { ButtonFooterIcon, ListItemButtonStyled, ListItemCenter } from '../../styles/footer'
+import { Colors } from '../../styles/theme'
 
 const Footer = () => {
     return (

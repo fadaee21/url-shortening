@@ -1,8 +1,8 @@
 import { Button, Grid, Typography } from '@mui/material'
 import { Box, Container } from '@mui/system'
 import React from 'react'
-import illustration from '../assets/all/illustration-working.svg'
-
+import illustration from '../../assets/all/illustration-working.svg'
+import { GridContainerBanner, GridItemBanner, Illustration } from '../../styles/navbar/navbar'
 
 const Banner = () => {
 
@@ -11,14 +11,9 @@ const Banner = () => {
             component={'section'}
             sx={{ overflowX: 'clip' }}>
             <Container maxWidth='lg'  >
-                <Grid container sx={{
-                    position: 'relative',
-                    justifyContent: "center",
-                    alignItems: "center",
-                    display: "flex",
-                }} >
+                <GridContainerBanner container  >
 
-                    <Grid item xs={12} md={6} sx={{ textAlign: { xs: 'center', md: 'left' }, px: { xs: '2rem', md: 0 } }}>
+                    <GridItemBanner item xs={12} md={6} >
                         <Typography variant='h2' sx={{
                             fontWeight: 700,
                             color: 'text.primary',
@@ -35,13 +30,12 @@ const Banner = () => {
                         }}>
                             get started
                         </Button>
-                    </Grid>
+                    </GridItemBanner>
 
                     <Grid item xs={12} md={6} sx={{ height: 500, width: 100, order: { xs: -2, md: 2 } }} >
-                        <Box component={'img'} src={illustration}
-                            sx={{ position: 'absolute', right: -270, top: 0, transform: { xs: ' scale(0.7)', sm: ' scale(1)' }, }} />
+                        <Illustration component={'img'} src={illustration} />
                     </Grid>
-                </Grid>
+                </GridContainerBanner>
             </Container>
         </Box>
     )

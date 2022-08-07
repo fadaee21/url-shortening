@@ -1,9 +1,9 @@
-import Banner from "./components/Banner";
-import BoostLinks from "./components/BoostLinks";
-import Footer from "./components/Footer";
-import InputShorten from "./components/InputShorten";
-import Navbar from "./components/Navbar";
-import Statistics from "./components/Statistics";
+import Navbar from "./components/navbar/Navbar";
+import Banner from "./components/banner/Banner";
+import BoostLinks from "./components/boostLinks/BoostLinks";
+import Footer from "./components/footer/Footer";
+import InputShorten from "./components/shorten/InputShorten";
+import Statistics from "./components/statistics/Statistics";
 
 function App() {
   return (

@@ -1,9 +1,10 @@
 import React from 'react'
-import { StatisticsAvatarBadge, StatisticsBox } from '../styles/statistics'
+import { StatisticsAvatarBadge, StatisticsBox } from '../../styles/statistics'
 import { Box, Typography } from '@mui/material'
-import iconBrand from '../assets/all/icon-brand-recognition.svg'
-import detailRecord from '../assets/all/icon-detailed-records.svg'
-import fullyCustomizable from '../assets/all/icon-fully-customizable.svg'
+import iconBrand from '../../assets/all/icon-brand-recognition.svg'
+import detailRecord from '../../assets/all/icon-detailed-records.svg'
+import fullyCustomizable from '../../assets/all/icon-fully-customizable.svg'
+
 
 
 export const BrandRecognition = () => {

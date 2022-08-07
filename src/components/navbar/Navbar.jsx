@@ -10,7 +10,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider'
 import Stack from '@mui/material/Stack'
-import { ShortlyIcon } from '../assets/svg';
+import { ShortlyIcon } from '../../assets/svg';
 
 
 const pages = ['features', 'Pricing', 'resources'];

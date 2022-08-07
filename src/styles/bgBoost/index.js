@@ -1,5 +1,5 @@
 import { Box } from '@mui/system'
-import { Colors } from '../theme/styles'
+import { Colors } from '../theme'
 import bgBoostDesktop from '../../assets/all/bg-boost-desktop.svg'
 import bgBoostMobile from '../../assets/all/bg-boost-mobile.svg'
 import { styled } from '@mui/material'

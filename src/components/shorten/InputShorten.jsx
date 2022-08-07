@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Container } from '@mui/system'
-import bgShorten from '../assets/all/bg-shorten-desktop.svg'
-import bgShortenM from '../assets/all/bg-shorten-mobile.svg'
-import { Colors } from '../styles/theme/styles'
-import { InputButton, ShortenTextField } from '../styles/inputShorten'
+import bgShorten from '../../assets/all/bg-shorten-desktop.svg'
+import bgShortenM from '../../assets/all/bg-shorten-mobile.svg'
+import { Colors } from '../../styles/theme'
+import { InputButton, ShortenTextField } from '../../styles/inputShorten'
 import LinkShorted from './LinkShorted'
 import { Typography } from '@mui/material'
-import useFetch from '../hook/useFetch'
+import useFetch from '../../hook/useFetch'
 const InputShorten = () => {
     const [textInput, setTextInput] = useState("")
     //custom hook
@@ -25,17 +25,18 @@ const InputShorten = () => {
     //clear error state after typing in the text field
     useEffect(() => {
         setErrorHandling("")
+        // eslint-disable-next-line
     }, [textInput])
 
 
     return (
-        <Box 
-        component={'main'}
-        sx={{
-            backgroundColor: Colors.Gray,
-            position: 'relative',
-            mt: 5
-        }}>
+        <Box
+            component={'main'}
+            sx={{
+                backgroundColor: Colors.Gray,
+                position: 'relative',
+                mt: 5
+            }}>
             <Box
                 sx={{
                     backgroundColor: '#fff',

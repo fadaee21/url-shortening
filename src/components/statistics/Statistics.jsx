@@ -1,7 +1,7 @@
 import { Stack, Typography, useMediaQuery, useTheme } from '@mui/material'
 import { Container } from '@mui/system'
 import React from 'react'
-import { CardBox, HorizontalLine, StatisticsBackground, VerticalLine } from '../styles/statistics'
+import { CardBox, HorizontalLine, StatisticsBackground, VerticalLine } from '../../styles/statistics'
 import { BrandRecognition, DetailRecords, FullyCustomizable } from './StatisticsPaper'
 
 const Statistics = () => {

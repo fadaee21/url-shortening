@@ -1,5 +1,5 @@
 import {  IconButton, ListItem, ListItemButton, styled } from "@mui/material";
-import { Colors } from '../theme/styles'
+import { Colors } from '../theme'
 export const ButtonFooterIcon = styled(IconButton)(({theme}) => ({
     margin: '1rem 0.1rem ',
     color: '#fff',

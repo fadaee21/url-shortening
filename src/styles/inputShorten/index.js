@@ -1,5 +1,5 @@
 import { Button, styled, TextField } from "@mui/material";
-import { Colors } from "../theme/styles";
+import { Colors } from "../theme";
 
 
 export const InputButton = styled(Button)(({ theme }) => ({
