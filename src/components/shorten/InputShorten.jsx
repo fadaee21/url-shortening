@@ -5,12 +5,12 @@ import bgShortenM from '../../assets/all/bg-shorten-mobile.svg'
 import { Colors } from '../../styles/theme'
 import { InputButton, ShortenTextField } from '../../styles/inputShorten'
 import LinkShorted from './LinkShorted'
-import { Typography } from '@mui/material'
+import { LinearProgress, Typography } from '@mui/material'
 import useFetch from '../../hook/useFetch'
 const InputShorten = () => {
     const [textInput, setTextInput] = useState("")
     //custom hook
-    const [fetchApi, errorHandling, storedValue, setErrorHandling] = useFetch(textInput, setTextInput)
+    const [fetchApi, errorHandling, storedValue, setErrorHandling, loading] = useFetch(textInput, setTextInput)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -96,6 +96,7 @@ const InputShorten = () => {
                             {errorHandling}
                         </Typography>}
                 </Box>
+                {loading ? <LinearProgress color='secondary' sx={{ width: '95%', mx: 'auto', my: 1 }} /> : ""}
                 {/* See a list of their shortened links, even after refreshing the browser */}
                 {storedValue.map((item) => {
                     return <LinkShorted key={item.receive} item={item} />

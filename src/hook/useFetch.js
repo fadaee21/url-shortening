@@ -6,15 +6,17 @@ const useFetch = (textInput, setTextInput) => {
 
     const [storedValue, setValue] = useLocalStorage("shortedStorage", [])
     const [errorHandling, setErrorHandling] = useState("")
-
+    const [loading, setLoading] = useState(false)
     // Shorten any valid URL
     const fetchApi = async () => {
         try {
+
             //prevent to send duplicate url
             const duplicate = storedValue.find(i => textInput.includes(i.send))
             if (duplicate) {
                 return setErrorHandling("You have already received the short url")
             }
+            setLoading(true)
             const response = await shortenUrlApi("shorten?url=" + textInput)
             // console.log(response)
             const objResponse = {
@@ -23,10 +25,12 @@ const useFetch = (textInput, setTextInput) => {
             }
             //push objResponse to the shortedREsponse array
             setValue(old => [...old, objResponse])
+            setLoading(false)
             //clearing
             setTextInput("")
             setErrorHandling("")
         } catch (error) {
+            setLoading(false)
             if (error.response.data.error_code === 2) {
                 return setErrorHandling("This is not a valid URL")
             }
@@ -40,7 +44,7 @@ const useFetch = (textInput, setTextInput) => {
             console.log(error)
         }
     }
-    return [fetchApi, errorHandling, storedValue, setErrorHandling]
+    return [fetchApi, errorHandling, storedValue, setErrorHandling, loading]
 }
 
 export default useFetch
